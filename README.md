@@ -6,28 +6,28 @@ Android sdk comes with [SmsRetriever API] which provide two ways to read the SMS
 
 1. Automatic SMS retriver API-
 - When it works:
-        - Be no longer than 140 bytes
-        - one time code (OTP) that you will send it your server to authenticate the user
-        - Include an 11-character hash string that identifies your app [see Computing your app's hash string]
+    -  Be no longer than 140 bytes
+    - one time code (OTP) that you will send it your server to authenticate the user
+    - Include an 11-character hash string that identifies your app [see Computing your app's hash string]
     ```Example :  23497 is your otp GTk321VTiNz```
 
 - When it doesn't work:
-        - If the message is longer than 140 bytes.
-        - If the message does not contain the 11-character hash key at the end of the message
+    - If the message is longer than 140 bytes.
+    - If the message does not contain the 11-character hash key at the end of the message
 >In the above example you can put OTP anywhere and accordingly you need to update the parsing logic while extracting it from the SMS as this api will give the whole SMS.
 ```GTk321VTiNz``` is the hash key that you have gnerated from terminal and hand it over the backend people to append it with every message you will receive.
 
 2. One tap Sms Retriever API-
 - When it works:
-       - The message contains a 4-10 character alphanumeric string with at least one number.
-       - The message was sent by a phone number that's not in the user's contacts.
-      - If you specified the sender's phone number, the message was sent by that number.
+     - The message contains a 4-10 character alphanumeric string with at least one number.
+     - The message was sent by a phone number that's not in the user's contacts.
+     - If you specified the sender's phone number, the message was sent by that number.
  ```Example :  23497 is your otp```
 
 - When it doesn't work:
-       - If message does not contains a 4-10 alphanumeric character string with at least one number
-       - if somehow recipient has saved the sender number or it is in recipient's contacts list then also this api won't work.
-       - If the mentioned number inside the code does not match with the sender's number then it won't work
+     - If message does not contains a 4-10 alphanumeric character string with at least one number
+     - if somehow recipient has saved the sender number or it is in recipient's contacts list then also this api won't work.
+     - If the mentioned number inside the code does not match with the sender's number then it won't work
 > If the sender number is fixed, you can mention the number while generating the client with this api inside the code, then it will listen the OTP from that number only else it won't work.
 But I would highly recommend not to put any number if you are not sure.You can just put null.
 ```
@@ -56,6 +56,11 @@ Remove AppSignatureHelper class from your project before going to production.
 this helps you generating one time hash key which you need to append in every message If you are using Automatic SMS Retriver API
 
 [Here you can watch the project in Action]
+
+## Prerequisites
+The SMS Retriever API is available only on Android devices with Play services version 10.2 and newer.
+Honestly, I have tried with Google play services version 16.x but it wasn't working for me. Finally I have upgraded my emulator version play service to 19.x then it was working.
+
 
 Reference :- https://developers.google.com/identity/sms-retriever/overview
 
