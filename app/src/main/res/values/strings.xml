@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">SmsRetriever</string>
+
+    <string name="send_sms">Send sms on this mobile with %1$s at the end\n for example :- : "54923 is your otp %2$s</string>
+    <string name="send_one_tap_sms">Send sms on this mobile for example :- : "54923 is your otp</string>
+</resources>
